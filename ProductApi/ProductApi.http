@@ -1,0 +1,140 @@
+@ProductApi_HostAddress = http://localhost:5053
+@ApiKey = VOTRE_API_KEY_ICI
+
+### CRUD Produit
+
+# Liste des produits
+GET {{ProductApi_HostAddress}}/api/products
+Accept: application/json
+x-api-key: {{ApiKey}}
+
+###
+
+# Détail d'un produit
+GET {{ProductApi_HostAddress}}/api/products/1
+Accept: application/json
+x-api-key: {{ApiKey}}
+
+###
+
+# Création d'un produit
+POST {{ProductApi_HostAddress}}/api/products
+Content-Type: application/json
+x-api-key: {{ApiKey}}
+
+{
+  "name": "T-shirt bleu",
+  "price": 19.99,
+  "description": "T-shirt 100% coton",
+  "stock": 50
+}
+
+###
+
+# Modification d'un produit
+PUT {{ProductApi_HostAddress}}/api/products/1
+Content-Type: application/json
+x-api-key: {{ApiKey}}
+
+{
+  "name": "T-shirt bleu marine",
+  "price": 21.99,
+  "description": "T-shirt coton premium",
+  "stock": 40
+}
+
+###
+
+# Suppression d'un produit
+DELETE {{ProductApi_HostAddress}}/api/products/1
+x-api-key: {{ApiKey}}
+
+###
+
+### Recherche avancée et reporting
+
+# Recherche par nom (insensible à la casse), tri par prix, pagination
+GET {{ProductApi_HostAddress}}/api/products/search?name=t-shirt&offset=0&limit=10
+Accept: application/json
+x-api-key: {{ApiKey}}
+
+###
+
+# Filtrer les produits disponibles (stock > 0)
+GET {{ProductApi_HostAddress}}/api/products/available
+Accept: application/json
+x-api-key: {{ApiKey}}
+
+###
+
+# Endpoint reporting : nombre total de produits en stock et valeur totale du stock
+GET {{ProductApi_HostAddress}}/api/products/stock/report
+Accept: application/json
+x-api-key: {{ApiKey}}
+
+###
+
+### Gestion des commandes
+
+# Liste des commandes
+GET {{ProductApi_HostAddress}}/api/orders
+Accept: application/json
+x-api-key: {{ApiKey}}
+
+###
+
+# Détail d'une commande
+GET {{ProductApi_HostAddress}}/api/orders/1
+Accept: application/json
+x-api-key: {{ApiKey}}
+
+###
+
+# Création d'une commande
+POST {{ProductApi_HostAddress}}/api/orders
+Content-Type: application/json
+x-api-key: {{ApiKey}}
+
+{
+  "products": [
+    { "productId": 2, "quantity": 3 },
+    { "productId": 3, "quantity": 1 }
+  ]
+}
+
+###
+
+# Modification d'une commande (statut, produits)
+PUT {{ProductApi_HostAddress}}/api/orders/1
+Content-Type: application/json
+x-api-key: {{ApiKey}}
+
+{
+  "status": "Send",
+  "products": [
+    { "productId": 2, "quantity": 2 }
+  ]
+}
+
+###
+
+# Suppression d'une commande
+DELETE {{ProductApi_HostAddress}}/api/orders/1
+x-api-key: {{ApiKey}}
+
+###
+
+# Rapport des commandes livrées sur une période donnée
+GET {{ProductApi_HostAddress}}/api/orders/report?status=Delivered&from=2024-01-01&to=2024-12-31
+Accept: application/json
+x-api-key: {{ApiKey}}
+
+###
+
+### Test sécurité : clé API manquante ou invalide
+
+GET {{ProductApi_HostAddress}}/api/products
+Accept: application/json
+# x-api-key: mauvaisecle
+
+###

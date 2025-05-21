@@ -1,0 +1,6 @@
+public class Product
+{
+    // ...existing code...
+    public int Stock { get; set; }
+    // ...existing code...
+}
