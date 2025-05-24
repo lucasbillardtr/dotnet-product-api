@@ -1,3 +1,4 @@
+using ProductApi.Database;
 using ProductApi.Entities;
 
 namespace ProductApi;

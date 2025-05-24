@@ -5,7 +5,7 @@ using ProductApi.Services;
 
 namespace ProductApi.Tests
 {
-    public class ProductServicesTests
+    public class ProductServiceTests
     {
         [Fact]
         public async Task GetAllAsync_ReturnsProductsFromRepository()
@@ -20,7 +20,7 @@ namespace ProductApi.Tests
             var repoMock = new Mock<IProductRepository>();
             repoMock.Setup(r => r.GetAllAsync()).ReturnsAsync(products);
 
-            var service = new ProductServices(repoMock.Object);
+            var service = new ProductService(repoMock.Object);
 
             // Act
             var result = await service.GetAllAsync();

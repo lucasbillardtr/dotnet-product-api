@@ -1,7 +1,9 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using ProductApi;
+using ProductApi.Database;
 using ProductApi.Repositories;
+using ProductApi.Services;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,7 +29,7 @@ builder.Services.AddControllers();
 
 // Seed the database
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
-
+builder.Services.AddScoped<IProductService, ProductService>();
 
 // Application configuration
 var app = builder.Build();

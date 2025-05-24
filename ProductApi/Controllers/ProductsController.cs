@@ -11,15 +11,15 @@ namespace ProductApi.Controllers;
 [Route("api/[controller]")]
 public class ProductsController : Controller
 {
-    private readonly IProductServices _productServices;
+    private readonly IProductService _productService;
 
     /// <summary>
     ///     Constructeur de la classe ProductController
     /// </summary>
-    /// <param name="productServices"></param>
-    public ProductsController(IProductServices productServices)
+    /// <param name="productService"></param>
+    public ProductsController(IProductService productService)
     {
-        _productServices = productServices;
+        _productService = productService;
     }
 
     /// <summary>
@@ -35,7 +35,7 @@ public class ProductsController : Controller
     [ProducesResponseType(typeof(IEnumerable<Product>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAll()
     {
-        var products = await _productServices.GetAllAsync();
+        var products = await _productService.GetAllAsync();
         return Ok(products);
     }
 }
