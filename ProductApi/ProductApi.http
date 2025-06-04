@@ -32,7 +32,7 @@ x-api-key: {{ApiKey}}
 ###
 
 # Modification d'un produit
-PUT {{ProductApi_HostAddress}}/api/products/1
+PUT {{ProductApi_HostAddress}}/api/products/2
 Content-Type: application/json
 x-api-key: {{ApiKey}}
 
@@ -97,8 +97,14 @@ x-api-key: {{ApiKey}}
 
 {
   "products": [
-    { "productId": 2, "quantity": 3 },
-    { "productId": 3, "quantity": 1 }
+    {
+      "productId": 2,
+      "quantity": 3
+    },
+    {
+      "productId": 3,
+      "quantity": 1
+    }
   ]
 }
 
@@ -112,7 +118,10 @@ x-api-key: {{ApiKey}}
 {
   "status": "Send",
   "products": [
-    { "productId": 2, "quantity": 2 }
+    {
+      "productId": 2,
+      "quantity": 2
+    }
   ]
 }
 

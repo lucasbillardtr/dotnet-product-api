@@ -29,8 +29,8 @@ public static class DatabaseSeeder
                 },
                 new Product
                 {
-                    Name = "Slip kangourou", Price = 20.0m, Slug = "slip-kangourou",
-                    Description = "Slip kangourou vert fluo, très viril", CreatedAt = now,
+                    Name = "Peignoir moderne", Price = 20.0m, Slug = "peignoir-moderne",
+                    Description = "Peignoir moderne vert fluo, très viril", CreatedAt = now,
                     Stock = 30
                 },
                 new Product
