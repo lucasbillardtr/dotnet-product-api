@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ProductApi.Entities;
 using ProductApi.Services;
+using ProductApi.DTOs;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace ProductApi.Controllers;
