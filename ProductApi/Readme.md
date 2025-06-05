@@ -47,6 +47,7 @@ Implémenter les opérations CRUD (GET, POST, PUT, DELETE) pour les produits.
 
 **💡 Conseil :**  
 Utiliser une méthode d’extension pour générer le slug.
+Utiliser une surcharge d'opérateurs pour cast le dto en entité.
 
 ---
 
